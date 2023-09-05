@@ -1,0 +1,34 @@
+<div class="head">
+    <title>BOOKING PAGE</title>
+</div>
+<h1  align="center">BOOKING SCREEN</h1>
+<div class="movie-details-container" align="center">
+  <br>
+    <h2>Movie Details</h2>
+    <span class="detail"><strong>Movie Name:</strong> {{ movieData['movie name'] }}</span>
+    <span class="name-separator"> | </span>
+    <span class="detail"><strong>Theatre Name:</strong> {{ movieData['theatre name'] }}</span>
+    <span class="name-separator"> | </span>
+    <span class="detail"><strong>Theatre Location:</strong> {{ movieData['theatre location'] }}</span>
+    <span class="name-separator"> | </span>
+    <span class="detail"><strong>Release Date:</strong> {{ movieData['release date'] | date }}</span>
+    <span class="name-separator"> | </span>
+    <span class="detail"><strong>Show time:</strong> 2.00 PM</span>
+    <br><br>
+  </div>
+  
+  
+
+<div class="seat-container">
+  <br>
+    <div *ngFor="let row of rows; let i = index" class="seat-row">
+      <div *ngFor="let seat of seatsPerRow; let j = index" class="seat" [ngClass]="{'selected': seatSelected[i][j]}" (click)="toggleSeat(i, j)">
+        {{ row }}{{ j + 1 }}
+        <br>
+      </div>
+    </div>
+    <br>
+    <button (click)="navigate()" class="button-confirm">CONFIRM BOOKING</button>
+  </div>
+
+  <div style="text-align: center; color: red;"><br>{{this.message}}</div>

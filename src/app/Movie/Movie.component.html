@@ -1,0 +1,26 @@
+<mat-card>
+  <br>
+  <mat-card-title style="text-align: center;">MOVIES LIST</mat-card-title>
+  <br>
+ 
+    <mat-grid-list cols="5" rowHeight="50px" gutterSize="5">
+      <mat-grid-tile>MOVIE NAME</mat-grid-tile>
+      <mat-grid-tile>THEATRE NAME</mat-grid-tile>
+      <mat-grid-tile>THEATRE LOCATION</mat-grid-tile>
+      <mat-grid-tile>RELEASE DATE</mat-grid-tile>
+      <mat-grid-tile>BOOK TICKETS</mat-grid-tile>
+    </mat-grid-list>
+  
+
+  <!-- Content for the "List" section -->
+  
+  <div *ngFor="let movie of moviesData[0]">
+    <mat-grid-list cols="5" rowHeight="50px" gutterSize="5">
+      <mat-grid-tile class="detail">{{ movie['movie name'] }}</mat-grid-tile>
+      <mat-grid-tile class="detail">{{ movie['theatre name'] }}</mat-grid-tile>
+      <mat-grid-tile class="detail">{{ movie['theatre location'] }}</mat-grid-tile>
+      <mat-grid-tile class="detail">{{ movie['release date'] }}</mat-grid-tile>
+      <mat-grid-tile class="detail"><button (click)="navigate(movie)">BOOK TICKET</button></mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</mat-card>
